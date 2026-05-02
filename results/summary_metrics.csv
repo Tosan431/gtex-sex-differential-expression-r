@@ -1,0 +1,8 @@
+Metric,Value
+Aorta artery samples,432
+Brain hippocampus samples,197
+Breast mammary samples,459
+Aorta artery DEGs (BH),801
+Brain hippocampus DEGs (BH),13
+Breast mammary DEGs (Bonferroni),5597
+Breast mammary DEGs (BH),13245

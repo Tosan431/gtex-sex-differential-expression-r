@@ -1,0 +1,11 @@
+Gene_Symbol,Measure,Notes
+CARTPT,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+LINC01597,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+WISP2,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+MCCC2,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+LINC01088,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+B3GNT7,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+CPAMD8,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+DUSP27,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+TMEM38A,-log10(P-value),Example top significant annotated gene from regenerated portfolio output
+DDX43,-log10(P-value),Example top significant annotated gene from regenerated portfolio output

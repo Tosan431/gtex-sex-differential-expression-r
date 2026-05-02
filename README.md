@@ -1,124 +1,126 @@
-# Sex Differences in Gene Expression Across Human Tissues
-### GTEx v8 Transcriptomic Analysis in R — MSc Health Data Science
+# GTEx Sex Differential Expression Analysis in R
 
-**Tosan Akpituren** · MSc Health Data Science for Applied Precision Medicine · University of Dundee · 2024  
-Supervisor: Dr. Andrew Brown
+## Portfolio Purpose
 
----
+This repository presents an employer-facing data analyst / data scientist portfolio version of my MSc Health Data Science dissertation project at the University of Dundee.
 
-## Overview
+The original study investigated whether sex-specific differences in gene expression across human tissues may help explain differences in disease prevalence, susceptibility or progression. This repository translates that research into a reproducible analytics case study showing data cleaning, statistical modelling, visualisation and interpretation skills using R.
 
-This project investigates sex-driven differences in gene expression across three clinically significant human tissues — **aorta artery**, **breast mammary tissue**, and **brain hippocampus** — using publicly available GTEx v8 transcriptomic data. The central question is whether genes influenced by biological sex differences are also the genes contributing to observed disparities in the prevalence, susceptibility, and severity of atherosclerosis, breast cancer, and Alzheimer's disease.
+## Project Summary
 
-**[View Interactive Portfolio →](https://tosan431.github.io/gtex-sex-differential-expression-r)**
+Using GTEx v8 transcriptomic data, I analysed sex-associated gene expression differences across three clinically relevant human tissues:
 
----
+- **Aorta artery** - cardiovascular disease and atherosclerosis relevance
+- **Breast mammary tissue** - breast cancer relevance
+- **Brain hippocampus** - Alzheimer’s disease relevance
 
-## Key Statistics
+The analysis combined high-dimensional data processing, differential expression modelling, multiple testing correction, genome-wide visualisation, pathway enrichment and GWAS-linked interpretation.
+
+## Key Project Metrics
 
 | Metric | Value |
-|---|---|
-| Total data points processed | ~21 million |
-| Gene variables analysed per tissue | ~19,000 |
-| Biological samples | 1,088 (432 aorta · 197 brain · 459 breast) |
-| Significant DEGs — Aorta Artery | 801 (Benjamini-Hochberg adjusted) |
-| Significant DEGs — Breast Mammary | 5,597 (Bonferroni adjusted) |
-| Significant KEGG pathways — Breast | 5 (BH-adjusted, DAVID) |
+|---|---:|
+| Aorta artery samples | 432 |
+| Brain hippocampus samples | 197 |
+| Breast mammary samples | 459 |
+| Gene variables analysed | approximately 19,000+ per tissue |
+| Aorta artery DEGs | 801 |
+| Brain hippocampus DEGs | 13 |
+| Breast mammary DEGs | 5,597 |
+| Core tools | R, ggplot2, limma, biomaRt, DAVID/KEGG |
 
----
+## Analytical Workflow
 
-## Tissues & Associated Diseases
+1. **Data acquisition**  
+   GTEx v8 transcript-per-million expression data and phenotype/covariate metadata were prepared for analysis.
 
-| Tissue | Disease of Interest | Samples |
-|---|---|---|
-| Aorta Artery | Atherosclerosis | 432 |
-| Brain Hippocampus | Alzheimer's Disease | 197 |
-| Breast Mammary | Breast Cancer | 459 |
+2. **Data cleaning and validation**  
+   Sample identifiers were checked, cleaned and harmonised before tissue-level expression and phenotype tables were merged.
 
----
+3. **Differential expression modelling**  
+   Gene expression was modelled against biological sex to estimate effect size and statistical significance.
 
-## Analytical Pipeline
+4. **Multiple testing correction**  
+   Benjamini-Hochberg and Bonferroni methods were used to control false discovery and identify statistically meaningful genes.
 
-```
-1. Data Acquisition     → GTEx v8 TPM expression matrices + phenotype metadata
-2. Harmonisation & QC   → Subject ID validation, whitespace removal, gene filtering
-3. Differential Expr.   → Gene-wise linear regression (lm) across ~19,000 genes per tissue
-4. Multiple Testing     → Benjamini-Hochberg (aorta/brain) · Bonferroni (breast)
-5. Annotation & GWAS    → biomaRt Ensembl mapping · Fisher's Exact Test vs GWAS Catalogue
-6. Pathway Enrichment   → KEGG via clusterProfiler (aorta) and DAVID (breast)
-```
+5. **Visual analytics**  
+   Volcano plots, Manhattan plots, p-value distributions and gene type charts were generated to communicate statistical signals.
 
----
+6. **Pathway enrichment**  
+   KEGG/DAVID pathway analysis was used to identify biological pathways enriched among differentially expressed genes.
 
-## Key Findings
+7. **Disease relevance interpretation**  
+   Results were compared with GWAS-linked disease genes to explore whether sex-biased expression signatures aligned with known disease-associated genes.
 
-**Aorta Artery**
-- 801 significant DEGs identified after Benjamini-Hochberg correction
-- clusterProfiler KEGG enrichment identified significant female-upregulated pathways including Ribosome, Coronavirus Disease–COVID-19, and Dopaminergic Synapse
-- GWAS orthogonal analysis: odds ratio 1.12 (p = 0.683, non-significant) vs atherosclerosis genes
+## Selected Visual Outputs
 
-**Breast Mammary Tissue**
-- 5,597 significant DEGs after Bonferroni correction (13,245 under BH — too large for pathway analysis)
-- Five statistically significant KEGG pathways (BH-adjusted), all enriched in **female-upregulated genes**:
-  1. ECM-Receptor Interaction
-  2. Cell Adhesion Molecules
-  3. Viral Protein Interaction with Cytokine and Cytokine Receptor
-  4. Coronavirus Disease – COVID-19
-  5. Basal Cell Carcinoma
-- GWAS orthogonal analysis: odds ratio 1.15 (p = 0.084, non-significant) vs breast cancer genes
+### Volcano Plot - Breast Mammary Tissue
 
-**Brain Hippocampus**
-- Only 13 significant DEGs after BH correction — insufficient for pathway analysis
-- Likely reflects smaller sample size (n=197) and male-skewed cohort (73% male)
-- Non-parametric Wilcoxon test applied as robustness check; results consistent
+![Volcano Plot](figures/01_volcano_breast.png)
 
----
+### Manhattan Plot - Genome-wide Differential Expression Signal
 
-## Tools & Packages
+![Manhattan Plot](figures/02_manhattan_plot.png)
 
-**Language:** R v4.4.1 (RStudio)
+### P-value Distribution
 
-| Package | Purpose |
-|---|---|
-| `ggplot2` | Volcano plots, Manhattan plots, histograms, boxplots, pathway charts |
-| `biomaRt` | Ensembl ID → gene symbol mapping, genomic coordinates |
-| `clusterProfiler` | KEGG pathway enrichment analysis |
-| `dplyr` / `tidyverse` | Data manipulation and pipeline management |
-| `limma` | Differential expression framework |
-| `DAVID` (web tool) | KEGG pathway enrichment — breast tissue |
-| `GWAS Catalogue` | Orthogonal disease gene validation |
+![P-value Histogram](figures/03_pvalue_histogram.png)
 
-**Statistical methods:** Gene-wise linear regression (`lm`), Wilcoxon rank-sum test, Benjamini-Hochberg FDR correction, Bonferroni correction, Fisher's Exact Test
+### Gene Type Distribution
 
----
+![Gene Type Distribution](figures/04_gene_type_distribution.png)
+
+### Top Significant Annotated Genes
+
+![Top Genes](figures/05_top_significant_genes.png)
+
+### KEGG Pathway Enrichment
+
+![KEGG Pathway Enrichment](figures/06_kegg_pathway_enrichment.png)
+
+## Technical Skills Demonstrated
+
+- High-dimensional transcriptomic data processing
+- Multi-source data validation and merging
+- Regression-based differential expression analysis
+- Multiple testing correction
+- Genome-wide statistical visualisation
+- Pathway enrichment interpretation
+- Reproducible R scripting
+- Evidence-based analytical storytelling
+- Translating complex scientific analysis into decision-oriented reporting
 
 ## Repository Structure
 
-```
+```text
 gtex-sex-differential-expression-r/
-│
-├── index.html          # Interactive portfolio (live via GitHub Pages)
-├── README.md           # This file
+├── README.md
+├── index.html
+├── gtex_differential_expression_analysis.R
+├── GTEx_Sex_Differential_Expression_Technical_Summary.pdf
+├── figures/
+│   ├── 01_volcano_breast.png
+│   ├── 02_manhattan_plot.png
+│   ├── 03_pvalue_histogram.png
+│   ├── 04_gene_type_distribution.png
+│   ├── 05_top_significant_genes.png
+│   └── 06_kegg_pathway_enrichment.png
+└── results/
+    ├── summary_metrics.csv
+    ├── top_significant_genes_example.csv
+    └── pathway_results_example.csv
 ```
 
----
+## Important Note on Data
 
-## Data Source
+The repository is designed as a portfolio and reproducibility showcase. The large GTEx source data are not uploaded here due to size and governance considerations. The R script demonstrates the analysis workflow and can be adapted where GTEx input files are available.
 
-All expression data used in this project are from the **GTEx v8** public resource:
+## Professional Relevance
 
-> The GTEx Consortium. *The GTEx Consortium atlas of genetic regulatory effects across human tissues.* Science 369, 1318–1330 (2020).
+Although the project is genomic in subject matter, it demonstrates transferable analyst capability highly relevant to health, NHS and public sector data roles:
 
-Data are publicly available at [gtexportal.org](https://gtexportal.org). All samples are pseudonymised; no personally identifiable information is contained in this repository.
-
----
-
-## Author
-
-**Tosan Akpituren**  
-MSc Health Data Science for Applied Precision Medicine  
-University of Dundee, 2024
-
----
-
-*Submitted in partial fulfilment of the requirements for the degree of Master of Science in Health Data Science for Applied Precision Medicine, University of Dundee, August 2024.*
+- processing large and complex datasets
+- validating and merging records across sources
+- applying statistical methods to answer defined analytical questions
+- producing reproducible outputs
+- communicating complex findings clearly to technical and non-technical audiences
