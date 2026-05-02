@@ -11,7 +11,7 @@
 
 ## Portfolio Purpose
 
-This repository presents an employer-facing data analyst / data scientist portfolio version of my MSc Health Data Science dissertation project at the University of Dundee.
+This repository presents an employer-facing data analyst/data scientist portfolio version of my MSc Health Data Science dissertation project at the University of Dundee.
 
 The original study investigated whether sex-specific differences in gene expression across human tissues may help explain differences in disease prevalence, susceptibility or progression. This repository translates that research into a reproducible analytics case study showing data cleaning, statistical modelling, visualisation and interpretation skills using R.
 
@@ -62,30 +62,26 @@ The analysis combined high-dimensional data processing, differential expression 
    Results were compared with GWAS-linked disease genes to explore whether sex-biased expression signatures aligned with known disease-associated genes.
 
 ## Selected Visual Outputs
+### Live Project Preview
 
-### Volcano Plot - Breast Mammary Tissue
+<h3 align="center">Selected Visual Outputs</h3>
 
-![Volcano Plot](figures/01_volcano_breast.png)
+<table align="center">
+<tr>
+<td><img src="figures/01_volcano_breast.png" width="420"></td>
+<td><img src="figures/02_manhattan_plot.png" width="420"></td>
+</tr>
 
-### Manhattan Plot - Genome-wide Differential Expression Signal
+<tr>
+<td><img src="figures/03_pvalue_histogram.png" width="420"></td>
+<td><img src="figures/04_gene_type_distribution.png" width="420"></td>
+</tr>
 
-![Manhattan Plot](figures/02_manhattan_plot.png)
-
-### P-value Distribution
-
-![P-value Histogram](figures/03_pvalue_histogram.png)
-
-### Gene Type Distribution
-
-![Gene Type Distribution](figures/04_gene_type_distribution.png)
-
-### Top Significant Annotated Genes
-
-![Top Genes](figures/05_top_significant_genes.png)
-
-### KEGG Pathway Enrichment
-
-![KEGG Pathway Enrichment](figures/06_kegg_pathway_enrichment.png)
+<tr>
+<td><img src="figures/05_top_significant_genes.png" width="420"></td>
+<td><img src="figures/06_kegg_pathway_enrichment.png" width="420"></td>
+</tr>
+</table>
 
 ## Technical Skills Demonstrated
 
