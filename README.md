@@ -1,13 +1,31 @@
 # GTEx Sex Differential Expression Analysis in R
 
-[Live Interactive Project Webpage](https://tosan431.github.io/gtex-sex-differential-expression-r/)
+![R](https://img.shields.io/badge/R-Statistical_Computing-blue)
+![GTEx](https://img.shields.io/badge/GTEx-v8_Data-orange)
+![limma](https://img.shields.io/badge/limma-Differential_Expression-green)
+![bioMart](https://img.shields.io/badge/biomaRt-Gene_Annotation-purple)
+![KEGG](https://img.shields.io/badge/KEGG-Pathway_Enrichment-red)
+![ggplot2](https://img.shields.io/badge/ggplot2-Visualization-yellow)
 
-[Download Technical Summary PDF](./GTEx_Sex_Differential_Expression_Technical_Summary.pdf)
+### Project Resources
 
-[View Full R Analysis Script](./gtex_differential_expression_analysis.R)
+🔗 [Live Interactive Project Webpage](index.html)
+
+📄 [Download Technical Summary PDF](GTEx_Sex_Differential_Expression_Technical_Summary.pdf)
+
+💻 [View Full R Analysis Script](gtex_differential_expression_analysis.R)
 
 ---
 
+## Results Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Total transcriptomic datapoints processed | ~21 million+ |
+| Biological samples analysed | 1,088 |
+| Significant differentially expressed genes | 6,398 |
+| Major tissues investigated | 3 |
+| Significant KEGG enriched pathways | 20+ |
 
 ## Portfolio Purpose
 
