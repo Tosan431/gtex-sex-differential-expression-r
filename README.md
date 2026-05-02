@@ -1,5 +1,14 @@
 # GTEx Sex Differential Expression Analysis in R
 
+[Live Interactive Project Webpage](https://tosan431.github.io/gtex-sex-differential-expression-r/)
+
+[Download Technical Summary PDF](./GTEx_Sex_Differential_Expression_Technical_Summary.pdf)
+
+[View Full R Analysis Script](./gtex_differential_expression_analysis.R)
+
+---
+
+
 ## Portfolio Purpose
 
 This repository presents an employer-facing data analyst / data scientist portfolio version of my MSc Health Data Science dissertation project at the University of Dundee.
