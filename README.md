@@ -9,7 +9,7 @@
 
 ### Project Resources
 
-🔗 [Live Interactive Project Webpage](index.html)
+🔗 [Live Interactive Project Webpage](https://tosan431.github.io/gtex-sex-differential-expression-r/)
 
 📄 [Download Technical Summary PDF](GTEx_Sex_Differential_Expression_Technical_Summary.pdf)
 
